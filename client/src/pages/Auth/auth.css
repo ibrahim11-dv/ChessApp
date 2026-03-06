@@ -1,0 +1,121 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 420px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 40px 36px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.title {
+    font-family: var(--header-font);
+    font-size: 2em;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+.info p {
+    font-family: var(--text-font);
+    font-size: 0.95em;
+    margin-left: 5px;
+    color : var(--secondary-color)
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.inputs input {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--secondary-color);
+    font-family: var(--text-font);
+    font-size: 0.95em;
+    outline: none;
+    transition: 0.3s;
+}
+
+.inputs input:hover,
+.inputs input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px rgba(212, 168, 67, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.inputs input::placeholder {
+    opacity: 0.4;
+}
+
+.inputs input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.errorMsg {
+    font-size: 0.88em;
+    color: #e05c5c;
+    background: rgba(224, 92, 92, 0.1);
+    border: 1px solid rgba(224, 92, 92, 0.3);
+    border-radius: 7px;
+    padding: 10px 14px;
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 0.7em;
+    font-family: var(--header-font);
+    font-size: 1em;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(212, 168, 67, 0.3);
+    margin-top: 1em;
+}
+
+.submitBtn:hover {
+    box-shadow: 0 0 25px var(--primary-color);
+    opacity: 0.9;
+}
+
+.submitBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+@media (max-width: 480px) {
+    .authContainer {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}

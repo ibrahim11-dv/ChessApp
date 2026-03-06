@@ -1,0 +1,332 @@
+/* ─── Layout ─────────────────────────────────────────────────── */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+}
+
+.boardContainer {
+    width: 600px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(179, 87, 0, 0.3),
+        0 0 40px rgba(113, 55, 0, 0.5),
+        0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 600px;
+    background: linear-gradient(160deg, rgb(28, 26, 24) 0%, rgb(20, 18, 16) 100%);
+    border: 1px solid rgba(179, 87, 0, 0.35);
+    border-radius: 14px;
+    box-shadow:
+        0 0 0 1px rgba(113, 55, 0, 0.15),
+        0 0 30px rgba(113, 55, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    padding: 20px;
+}
+
+/* Wraps header + difficulty + moves — grows to fill available space */
+.menu-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    padding-top: 5px;
+    border-bottom: 1px solid rgba(179, 87, 0, 0.2);
+    margin-bottom: 4px;
+}
+
+.menu-header h1 {
+    font-family: var(--header-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+}
+
+.turn-badge {
+    font-family: var(--header-font);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(179, 87, 0, 0.12);
+    border: 1px solid rgba(179, 87, 0, 0.3);
+    color: var(--secondary-color);
+}
+
+/* ─── Sections ───────────────────────────────────────────────── */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.section-label {
+    font-family: var(--header-font);
+    font-size: 0.6rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(179, 87, 0, 0.55);
+    padding: 0 2px;
+}
+
+.section + .section {
+    padding-top: 6px;
+    border-top: 1px solid rgba(179, 87, 0, 0.1);
+}
+
+/* ─── Difficulty ─────────────────────────────────────────────── */
+.difficulty-group {
+    display: flex;
+    gap: 8px;
+}
+
+.diff-btn {
+    flex: 1;
+    padding: 9px 4px;
+    border-radius: 8px;
+    font-family: var(--header-font);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid rgba(179, 87, 0, 0.2);
+    background: rgba(179, 87, 0, 0.05);
+    color: rgba(179, 87, 0, 0.5);
+    transition: all 0.2s ease;
+}
+
+.diff-btn:hover {
+    border-color: rgba(179, 87, 0, 0.5);
+    color: var(--secondary-color);
+    background: rgba(179, 87, 0, 0.1);
+}
+
+.diff-btn--easy.active {
+    background: rgba(74, 160, 74, 0.15);
+    border-color: rgba(74, 160, 74, 0.6);
+    color: rgb(120, 200, 100);
+    box-shadow: 0 0 12px rgba(74, 160, 74, 0.15);
+}
+
+.diff-btn--normal.active {
+    background: rgba(179, 87, 0, 0.15);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    box-shadow: 0 0 12px rgba(179, 87, 0, 0.2);
+}
+
+.diff-btn--hard.active {
+    background: rgba(180, 50, 50, 0.15);
+    border-color: rgba(200, 70, 70, 0.7);
+    color: rgb(220, 100, 100);
+    box-shadow: 0 0 12px rgba(180, 50, 50, 0.2);
+}
+
+/* ─── Dropdown Toggle ────────────────────────────────────────── */
+.dropdown-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(179, 87, 0, 0.07);
+    border: 1px solid rgba(179, 87, 0, 0.2);
+    color: var(--secondary-color);
+    font-family: var(--header-font);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+    background: rgba(179, 87, 0, 0.13);
+    border-color: rgba(179, 87, 0, 0.45);
+}
+
+.dropdown-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.move-count {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background: rgba(179, 87, 0, 0.2);
+    color: var(--secondary-color);
+    font-family: var(--header-font);
+    letter-spacing: 0;
+}
+
+.chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.25s ease;
+    opacity: 0.7;
+}
+
+.chevron.open {
+    transform: rotate(180deg);
+}
+
+/* ─── Moves Panel ────────────────────────────────────────────── */
+.moves-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0 0 8px 8px;
+}
+
+.moves-panel.open {
+    /* tall enough to use the free space between sections and buttons */
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+.moves-panel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.moves-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.moves-panel::-webkit-scrollbar-thumb {
+    background: rgba(179, 87, 0, 0.3);
+    border-radius: 2px;
+}
+
+.no-moves {
+    font-family: var(--header-font);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: rgba(179, 87, 0, 0.35);
+    text-align: center;
+    padding: 18px 0;
+    text-transform: uppercase;
+}
+
+.moves {
+    list-style: none;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.moves li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-family: var(--header-font);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: background 0.15s;
+}
+
+.moves li:hover {
+    background: rgba(179, 87, 0, 0.08);
+}
+
+.white-move {
+    color: rgba(230, 200, 160, 0.9);
+}
+
+.black-move {
+    color: rgba(179, 87, 0, 0.75);
+}
+
+.move-num {
+    font-size: 0.62rem;
+    opacity: 0.45;
+    min-width: 22px;
+}
+
+.move-san {
+    font-weight: 600;
+    flex: 1;
+}
+
+.move-to {
+    font-size: 0.65rem;
+    opacity: 0.45;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+/* ─── Buttons — always at the bottom ────────────────────────── */
+.btns {
+    display: flex;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(179, 87, 0, 0.1);
+    /* pushes away from .menu-top which has flex:1 */
+    flex-shrink: 0;
+}
+
+.btn {
+    flex: 1;
+    padding: 11px 10px;
+    border-radius: 8px;
+    font-family: var(--header-font);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.btn--reset {
+    background: rgba(179, 87, 0, 0.18);
+    border-color: rgba(179, 87, 0, 0.45);
+    color: var(--secondary-color);
+}
+
+.btn--reset:hover {
+    background: rgba(179, 87, 0, 0.3);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 16px rgba(179, 87, 0, 0.25);
+}
+
+.btn--secondary {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(179, 87, 0, 0.5);
+}
+
+.btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(179, 87, 0, 0.25);
+    color: rgba(179, 87, 0, 0.8);
+}

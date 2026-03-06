@@ -1,0 +1,104 @@
+nav{
+    width : 90%;
+    padding : 1em 5%;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    display : flex;
+    font-family: var(--header-font);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    align-items:center ;
+    gap : 0.3em;
+
+
+}
+.logo img{
+    width: 40px;
+    height: 40px;
+}
+.navLinks{
+    list-style: none;
+    display: flex;
+    gap : 2.5em;
+}
+.navLinks li a{
+    position : relative;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    color: var(--secondary-color);
+    transition: 0.3s ;
+}
+.navLinks li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+  transition: width 0.3s ease;
+}
+.navLinks li a:hover::after {
+  width: 100%;
+}
+.navLinks li a:hover{
+    
+    text-shadow: 0 0 10px var(--primary-color);
+}
+.btns{
+    display: flex;
+    gap : 0.5em
+}
+.registerBtn,  .loginBtn {
+    font-family: var(--header-font);
+    padding: 0.3em 1em;
+    border-radius: 7px ;
+    font-weight: 500;
+    font-size: 1em;
+    background-color: rgb(139, 72, 0);
+    border : none;
+    cursor: pointer;
+    box-shadow : 0 0 10px var(--primary-color);
+    transition: 0.3s;
+    animation: pulseGlow 3s ease-in-out infinite;
+
+}
+.registerBtn:hover,  .loginBtn:hover{
+    background-color: var(--secondary-color);
+    animation: none;
+    box-shadow: 0 0 25px var(--primary-color);
+    color: var(--background-color);
+}
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 9px var(--primary-color); }
+  50%  { box-shadow: 0 0 10px var(--primary-color), 0 0 40px var(--primary-color); }
+  100% { box-shadow: 0 0 9px var(--primary-color); }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none; 
+  }
+
+  .logo {
+    font-size: 1.3em;
+  }
+
+  .registerBtn, .loginBtn {
+    padding: 0.3em 0.7em;
+    font-size: 0.85em;
+  }
+}
